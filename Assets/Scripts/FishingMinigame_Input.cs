@@ -85,7 +85,7 @@ public class FishingMinigame_Input : MonoBehaviour
     public void StartFishing() 
     {
         if (!ValidateRefs()) return;
-        if (resultText) resultText.tag = "";
+        //if (resultText) resultText.tag = "";
 
         if (randomizeZone) RandomizeZone();
 
@@ -171,7 +171,7 @@ public class FishingMinigame_Input : MonoBehaviour
     }
 
     private float GetTrackBottom() => -trackArea.rect.height * 0.5f;
-    private float GetTrackTop() => -trackArea.rect.height * 0.5f;
+    private float GetTrackTop() => trackArea.rect.height * 0.5f;
 
     private bool ValidateRefs()
     {
