@@ -88,6 +88,13 @@ public class FishingMinigame_Input : MonoBehaviour
         if (resultText) resultText.tag = "";
 
         if (randomizeZone) RandomizeZone();
+
+        t = Random.Range(0.05f, 0.95f);
+        dir = Random.value < 0.5f ? 1 : -1;
+        ApplyMarkerPosition();
+
+        biteTimer = Random.Range(biteWaitRange.x, biteWaitRange.y); ;
+        state = State.WaitingForBite;
     }
 
     public void CancelFishing()
