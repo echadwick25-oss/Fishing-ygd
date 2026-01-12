@@ -171,7 +171,7 @@ public class FishingMinigame_Input : MonoBehaviour
     }
 
     private float GetTrackBottom() => -trackArea.rect.height * 0.5f;
-    private float GetTrackTop() => -trackArea.rect.height * 0.5f;
+    private float GetTrackTop() => trackArea.rect.height * 0.5f;
 
     private bool ValidateRefs()
     {
