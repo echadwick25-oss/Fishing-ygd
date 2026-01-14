@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +10,8 @@ public class NewInputSystemPlayerMovement : MonoBehaviour
     [Header("Player Settings")]
     [SerializeField] float speed;
     [SerializeField] float jumpingPower;
+    [SerializeField] GameObject interactField;
+    private float interactWaitTime;
 
     [Header("Grounding")]
     [SerializeField] LayerMask groundLayer;
@@ -16,6 +19,18 @@ public class NewInputSystemPlayerMovement : MonoBehaviour
 
     private float horizontal;
 
+    private void Update()
+    {
+        interactWaitTime -= Time.deltaTime;
+        if (interactWaitTime < 0)
+        {
+            interactField.SetActive(false);
+        }
+        else
+        {
+            interactField.SetActive(true);
+        }
+    }
     private void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(horizontal * speed, rb.linearVelocity.y);
@@ -34,6 +49,11 @@ public class NewInputSystemPlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpingPower);
         }
+    }
+
+    public void Interact(InputAction.CallbackContext context)
+    {
+        interactWaitTime = .5f;
     }
 
     private bool IsGrounded()

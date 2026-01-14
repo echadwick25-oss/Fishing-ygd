@@ -6,7 +6,7 @@ public class StartFishing : MonoBehaviour
     [SerializeField] GameObject Player;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Interact")
         {
             fishing.SetActive(true);
             Player.SetActive(false);
