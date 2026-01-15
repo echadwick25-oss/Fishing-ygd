@@ -1,5 +1,6 @@
 {
-    "name": "GameplayControls",
+    "version": 1,
+    "name": "FishingControls",
     "maps": [
         {
             "name": "Gameplay",
