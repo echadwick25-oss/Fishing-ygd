@@ -85,7 +85,7 @@ public class FishingMinigame_Input : MonoBehaviour
     public void StartFishing() 
     {
         if (!ValidateRefs()) return;
-        //if (resultText) resultText.tag = "";
+        if (resultText) resultText.tag = "";
 
         if (randomizeZone) RandomizeZone();
 

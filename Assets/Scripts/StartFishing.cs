@@ -8,8 +8,13 @@ public class StartFishing : MonoBehaviour
     {
         if (collision.gameObject.tag == "Interact")
         {
-            fishing.SetActive(true);
-            Player.SetActive(false);
+            FishStart();
         }
+    }
+
+    public void FishStart()
+    {
+        fishing.SetActive(true);
+        Player.SetActive(false);
     }
 }

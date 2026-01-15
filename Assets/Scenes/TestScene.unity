@@ -390,7 +390,7 @@ Canvas:
   m_GameObject: {fileID: 414867458}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 1963782266}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -402,7 +402,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 500
   m_TargetDisplay: 0
 --- !u!1 &562112411
 GameObject:
@@ -643,7 +643,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 414867459}
-  - {fileID: 838880090}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &838880089
@@ -672,11 +671,11 @@ Transform:
   m_GameObject: {fileID: 838880089}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.32128, y: 3.6230302, z: 0}
+  m_LocalPosition: {x: -1.97298, y: 2.69388, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 736156802}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &838880091
 MonoBehaviour:
@@ -703,10 +702,34 @@ MonoBehaviour:
   stopAction: {fileID: 6462089373997055705, guid: 3b796068e467dca46aebfcb053c52a3d, type: 3}
   onCatch:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 838880091}
+        m_TargetAssemblyTypeName: FishingMinigame_Input, Assembly-CSharp
+        m_MethodName: OnDisable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onMiss:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 838880091}
+        m_TargetAssemblyTypeName: FishingMinigame_Input, Assembly-CSharp
+        m_MethodName: Retry
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   state: 0
 --- !u!1 &927332454
 GameObject:
@@ -1901,3 +1924,4 @@ SceneRoots:
   - {fileID: 1542971393}
   - {fileID: 1726037945}
   - {fileID: 736156802}
+  - {fileID: 838880090}
