@@ -17,6 +17,9 @@ public class FishingMinigame_Input : MonoBehaviour
     public RectTransform marker;
     public RectTransform successZone;
     public TMP_Text resultText;
+    private int fishCaughtID;
+    public TMP_Text fishCaughtText;
+    public float FishCaughtTextTime;
 
 
     [Header("Gameplay")]
@@ -49,6 +52,7 @@ public class FishingMinigame_Input : MonoBehaviour
         }
 
         if (autoStartOnEnable) StartFishing();
+        FishCaughtTextTime = 0f;
     }
 
     private void OnDisable()
@@ -76,6 +80,26 @@ public class FishingMinigame_Input : MonoBehaviour
                 UpdateMarker();
                 break;
         }
+        FishCaughtTextTime -= Time.deltaTime;
+        if (FishCaughtTextTime < 0)
+        {
+            fishCaughtText.text = "";
+        }
+        if (FishCaughtTextTime < 5f)
+        {
+            fishCaughtID = Random.Range(0, 11);
+            if (fishCaughtID == 1)
+            {
+                fishCaughtText.text = "fish1";
+            }
+            fishCaughtID = Random.Range(0, 11);
+            if (fishCaughtID == 2)
+            {
+                fishCaughtText.text = "fish2";
+            }
+        }
+
+
 
     }
 
@@ -134,12 +158,15 @@ public class FishingMinigame_Input : MonoBehaviour
         {
             if (resultText) resultText.text = "Fish Caught!";
             onCatch?.Invoke();
+            FishCaughtTextTime = 5f;
+
         }
         else
         {
             if (resultText) resultText.text = "The fish got away...";
             onMiss?.Invoke();
             Retry();
+            FishCaughtTextTime = -0.1f;
         }
     }
 
@@ -193,6 +220,8 @@ public class FishingMinigame_Input : MonoBehaviour
         Player.SetActive(true);
         Player.GetComponentInChildren<NewInputSystemPlayerMovement>().interactWaitTime = 0;
     }
+
+
 
 
     public void PressStop() => OnStopPerformed(default);
