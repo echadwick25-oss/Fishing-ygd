@@ -11,6 +11,8 @@ public class FishingMinigame_Input : MonoBehaviour
     public enum State { Idle, WaitingForBite, Running, Result }
 
     [Header("References")]
+    [SerializeField] GameObject interactField;
+    [SerializeField] GameObject Player;
     public RectTransform trackArea;
     public RectTransform marker;
     public RectTransform successZone;
@@ -74,6 +76,7 @@ public class FishingMinigame_Input : MonoBehaviour
                 UpdateMarker();
                 break;
         }
+
     }
 
     private void OnStopPerformed(InputAction.CallbackContext ctx)
@@ -136,6 +139,7 @@ public class FishingMinigame_Input : MonoBehaviour
         {
             if (resultText) resultText.text = "The fish got away...";
             onMiss?.Invoke();
+            Retry();
         }
     }
 
@@ -182,6 +186,14 @@ public class FishingMinigame_Input : MonoBehaviour
         }
         return true;
     }
+
+    public void Quit(InputAction.CallbackContext context)
+    {
+        gameObject.SetActive(false);
+        Player.SetActive(true);
+        Player.GetComponentInChildren<NewInputSystemPlayerMovement>().interactWaitTime = 0;
+    }
+
 
     public void PressStop() => OnStopPerformed(default);
     public void Retry() => StartFishing();

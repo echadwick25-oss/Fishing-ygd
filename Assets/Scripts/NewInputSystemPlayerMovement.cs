@@ -11,7 +11,7 @@ public class NewInputSystemPlayerMovement : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float jumpingPower;
     [SerializeField] GameObject interactField;
-    private float interactWaitTime;
+    public float interactWaitTime;
 
     [Header("Grounding")]
     [SerializeField] LayerMask groundLayer;

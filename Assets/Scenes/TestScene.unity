@@ -628,7 +628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &736156802
 Transform:
   m_ObjectHideFlags: 0
@@ -637,13 +637,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736156801}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.29426, y: -0.92915, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.32128, y: -3.6230302, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 414867459}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 838880090}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &838880089
 GameObject:
@@ -655,13 +655,14 @@ GameObject:
   m_Component:
   - component: {fileID: 838880090}
   - component: {fileID: 838880091}
+  - component: {fileID: 838880092}
   m_Layer: 0
   m_Name: Fishing Minigame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &838880090
 Transform:
   m_ObjectHideFlags: 0
@@ -674,7 +675,8 @@ Transform:
   m_LocalPosition: {x: -1.97298, y: 2.69388, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 736156802}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &838880091
@@ -689,6 +691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76b455c2b023e0a4a9b906c651bdfd97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactField: {fileID: 1705072999}
+  Player: {fileID: 1542971391}
   trackArea: {fileID: 927332455}
   marker: {fileID: 120533338}
   successZone: {fileID: 713483357}
@@ -702,26 +706,46 @@ MonoBehaviour:
   stopAction: {fileID: 6462089373997055705, guid: 3b796068e467dca46aebfcb053c52a3d, type: 3}
   onCatch:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 838880091}
-        m_TargetAssemblyTypeName: FishingMinigame_Input, Assembly-CSharp
-        m_MethodName: OnDisable
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onMiss:
     m_PersistentCalls:
+      m_Calls: []
+  state: 0
+--- !u!114 &838880092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838880089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 3b796068e467dca46aebfcb053c52a3d, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c377c218-788c-41ef-8e2d-2591704b27d0
+    m_ActionName: 'Gameplay/Stop[/Keyboard/space,/Mouse/leftButton]'
+  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 838880091}
         m_TargetAssemblyTypeName: FishingMinigame_Input, Assembly-CSharp
-        m_MethodName: Retry
-        m_Mode: 1
+        m_MethodName: Quit
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -730,7 +754,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  state: 0
+    m_ActionId: 88923e61-3d5f-4b99-bbd7-28798667d479
+    m_ActionName: 'Gameplay/Quit[/Keyboard/escape]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &927332454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,6 +1158,7 @@ MonoBehaviour:
   speed: 10
   jumpingPower: 10
   interactField: {fileID: 1705072999}
+  interactWaitTime: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -1253,11 +1284,15 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 324bfb74-bff8-4a90-b512-4eaeeb122c7c
     m_ActionName: 'Player/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 70ae39db-3a0f-4c64-be63-d6a4fdc937ce
+    m_ActionName: 'Player/DeInteract[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1963782266}
 --- !u!1 &1542971391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1524,7 +1559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96fd6d474ed813c41b209e152b1af352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishing: {fileID: 736156801}
+  fishing: {fileID: 838880089}
   Player: {fileID: 1542971391}
 --- !u!61 &1726037943
 BoxCollider2D:
@@ -1923,5 +1958,4 @@ SceneRoots:
   - {fileID: 1710630708}
   - {fileID: 1542971393}
   - {fileID: 1726037945}
-  - {fileID: 736156802}
   - {fileID: 838880090}
