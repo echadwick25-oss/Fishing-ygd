@@ -85,14 +85,13 @@ public class FishingMinigame_Input : MonoBehaviour
         {
             fishCaughtText.text = "";
         }
-        if (FishCaughtTextTime < 5f)
+        if (FishCaughtTextTime == 5f)
         {
             fishCaughtID = Random.Range(0, 11);
             if (fishCaughtID == 1)
             {
                 fishCaughtText.text = "fish1";
             }
-            fishCaughtID = Random.Range(0, 11);
             if (fishCaughtID == 2)
             {
                 fishCaughtText.text = "fish2";
@@ -158,7 +157,7 @@ public class FishingMinigame_Input : MonoBehaviour
         {
             if (resultText) resultText.text = "Fish Caught!";
             onCatch?.Invoke();
-            FishCaughtTextTime = 5f;
+            FishCaughtTextTime = 5.5f;
 
         }
         else
