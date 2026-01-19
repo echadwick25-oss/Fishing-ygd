@@ -17,7 +17,7 @@ public class FishingMinigame_Input : MonoBehaviour
     public RectTransform marker;
     public RectTransform successZone;
     public TMP_Text resultText;
-    private int fishCaughtID;
+    public int fishCaughtID;
     public TMP_Text fishCaughtText;
     public float FishCaughtTextTime;
 
@@ -66,6 +66,28 @@ public class FishingMinigame_Input : MonoBehaviour
 
     private void Update()
     {
+        FishCaughtTextTime -= Time.deltaTime;
+        if (FishCaughtTextTime < 0)
+        {
+            fishCaughtText.text = "";
+        }
+        if (FishCaughtTextTime > 0)
+        {
+            fishCaughtID = Random.Range(0, 11);
+        }
+        if (FishCaughtTextTime < 5f)
+        {
+            if (fishCaughtID == 1)
+            {
+                fishCaughtText.text = "fish1";
+            }
+            if (fishCaughtID == 2)
+            {
+                fishCaughtText.text = "fish2";
+            }
+        }
+
+
         switch (state)
         {
             case State.WaitingForBite:
@@ -80,24 +102,7 @@ public class FishingMinigame_Input : MonoBehaviour
                 UpdateMarker();
                 break;
         }
-        FishCaughtTextTime -= Time.deltaTime;
-        if (FishCaughtTextTime < 0)
-        {
-            fishCaughtText.text = "";
-        }
-        if (FishCaughtTextTime == 5f)
-        {
-            fishCaughtID = Random.Range(0, 11);
-            if (fishCaughtID == 1)
-            {
-                fishCaughtText.text = "fish1";
-            }
-            if (fishCaughtID == 2)
-            {
-                fishCaughtText.text = "fish2";
-            }
-        }
-
+      
 
 
     }

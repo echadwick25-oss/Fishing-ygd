@@ -834,6 +834,7 @@ MonoBehaviour:
   marker: {fileID: 120533338}
   successZone: {fileID: 713483357}
   resultText: {fileID: 1067559599}
+  fishCaughtID: 0
   fishCaughtText: {fileID: 65611818}
   FishCaughtTextTime: 0
   speed: 1.5
