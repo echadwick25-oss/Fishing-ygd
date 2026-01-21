@@ -67,25 +67,31 @@ public class FishingMinigame_Input : MonoBehaviour
     private void Update()
     {
         FishCaughtTextTime -= Time.deltaTime;
-        if (FishCaughtTextTime < 0)
+       
+
+        if (fishCaughtID == 0)
         {
             fishCaughtText.text = "";
         }
-        if (FishCaughtTextTime > 0)
+        
+        if (fishCaughtID == 1)
         {
-            fishCaughtID = Random.Range(0, 11);
-        }
-        if (FishCaughtTextTime < 5f)
-        {
-            if (fishCaughtID == 1)
+            fishCaughtText.text = "fish1";
+            if (FishCaughtTextTime < 0)
             {
-                fishCaughtText.text = "fish1";
-            }
-            if (fishCaughtID == 2)
-            {
-                fishCaughtText.text = "fish2";
+                fishCaughtID = 0;
             }
         }
+        
+        if (fishCaughtID == 2)
+        {
+            fishCaughtText.text = "fish2";
+            if (FishCaughtTextTime < 0)
+            {
+                fishCaughtID = 0;
+            }    
+        }
+        
 
 
         switch (state)
@@ -162,7 +168,8 @@ public class FishingMinigame_Input : MonoBehaviour
         {
             if (resultText) resultText.text = "Fish Caught!";
             onCatch?.Invoke();
-            FishCaughtTextTime = 5.5f;
+            fishCaughtID = Random.Range(1, 3);
+            FishCaughtTextTime = 3f;
 
         }
         else
