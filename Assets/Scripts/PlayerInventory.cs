@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public static PlayerInventory Instance;
+
+    public FishingMinigame_Input fishing;
+    public int fish1;
+    public int fish2;
+
+    private void Awake()
     {
-        
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        fish1 = fishing.fish1;
+        fish2 = fishing.fish2;
     }
 }

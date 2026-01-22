@@ -20,6 +20,9 @@ public class FishingMinigame_Input : MonoBehaviour
     public int fishCaughtID;
     public TMP_Text fishCaughtText;
     public float FishCaughtTextTime;
+    public int fish1;
+    public int fish2;
+    private bool hasRun = false;
 
 
     [Header("Gameplay")]
@@ -42,6 +45,12 @@ public class FishingMinigame_Input : MonoBehaviour
     private float t;
     private int dir = 1;
     private float biteTimer;
+
+    private void Awake()
+    {
+        fish1 = PlayerInventory.Instance.fish1;
+        fish2 = PlayerInventory.Instance.fish2;
+    }
 
     private void OnEnable()
     {
@@ -77,18 +86,32 @@ public class FishingMinigame_Input : MonoBehaviour
         if (fishCaughtID == 1)
         {
             fishCaughtText.text = "fish1";
+            if (!hasRun)
+            {
+                hasRun = true;
+                fish1 = fish1 + 1;
+            }
             if (FishCaughtTextTime < 0)
             {
                 fishCaughtID = 0;
+                hasRun = false;
+                StartFishing();
             }
         }
         
         if (fishCaughtID == 2)
         {
             fishCaughtText.text = "fish2";
+            if (!hasRun)
+            {
+                hasRun = true;
+                fish2 = fish2 + 1;
+            }
             if (FishCaughtTextTime < 0)
             {
                 fishCaughtID = 0;
+                hasRun = false;
+                StartFishing();
             }    
         }
         
@@ -231,9 +254,6 @@ public class FishingMinigame_Input : MonoBehaviour
         Player.SetActive(true);
         Player.GetComponentInChildren<NewInputSystemPlayerMovement>().interactWaitTime = 0;
     }
-
-
-
 
     public void PressStop() => OnStopPerformed(default);
     public void Retry() => StartFishing();
