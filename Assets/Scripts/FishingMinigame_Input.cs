@@ -13,6 +13,7 @@ public class FishingMinigame_Input : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject interactField;
     [SerializeField] GameObject Player;
+    public PlayerInventory inventory;
     public RectTransform trackArea;
     public RectTransform marker;
     public RectTransform successZone;
@@ -20,8 +21,6 @@ public class FishingMinigame_Input : MonoBehaviour
     public int fishCaughtID;
     public TMP_Text fishCaughtText;
     public float FishCaughtTextTime;
-    public int fish1;
-    public int fish2;
     private bool hasRun = false;
 
 
@@ -45,12 +44,6 @@ public class FishingMinigame_Input : MonoBehaviour
     private float t;
     private int dir = 1;
     private float biteTimer;
-
-    private void Awake()
-    {
-        fish1 = PlayerInventory.Instance.fish1;
-        fish2 = PlayerInventory.Instance.fish2;
-    }
 
     private void OnEnable()
     {
@@ -89,7 +82,7 @@ public class FishingMinigame_Input : MonoBehaviour
             if (!hasRun)
             {
                 hasRun = true;
-                fish1 = fish1 + 1;
+                inventory.fish1 = inventory.fish1 + 1;
             }
             if (FishCaughtTextTime < 0)
             {
@@ -105,7 +98,7 @@ public class FishingMinigame_Input : MonoBehaviour
             if (!hasRun)
             {
                 hasRun = true;
-                fish2 = fish2 + 1;
+                inventory.fish2 = inventory.fish2 + 1;
             }
             if (FishCaughtTextTime < 0)
             {
