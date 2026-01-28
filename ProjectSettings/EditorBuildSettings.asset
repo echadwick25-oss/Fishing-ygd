@@ -5,9 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Fishing minigame.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Pathway.unity
+    guid: a3f781cd79d9dec4f8006506a7142bdd
+  - enabled: 1
+    path: Assets/Scenes/Market.unity
+    guid: 1da032c63c3be412395e0119f7ba9bcb
+  - enabled: 1
+    path: Assets/Scenes/Docks.unity
+    guid: 25b80bdbfd6c0444fad0cae0287d9f4c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

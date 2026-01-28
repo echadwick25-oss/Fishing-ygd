@@ -5,7 +5,7 @@ public class SceneManagement : MonoBehaviour
 {
     private void LoadPath()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     private void LoadDocks()
@@ -15,6 +15,6 @@ public class SceneManagement : MonoBehaviour
 
     private void LoadMarket()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(1);
     }
 }
