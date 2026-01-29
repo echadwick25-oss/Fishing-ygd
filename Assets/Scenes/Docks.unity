@@ -620,7 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactField: {fileID: 1705072999}
   Player: {fileID: 1542971391}
-  inventory: {fileID: 0}
+  inventory: {fileID: 1314123087}
   trackArea: {fileID: 927332455}
   marker: {fileID: 120533338}
   successZone: {fileID: 713483357}
@@ -1332,7 +1332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishing: {fileID: 838880091}
-  shop: {fileID: 0}
   fish1: 0
   fish2: 0
   balance: 0
@@ -1375,7 +1374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1542971391}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -8.63, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2003,7 +2002,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1963782267}
-  - {fileID: 1542971393}
   - {fileID: 1726037945}
   - {fileID: 1314123088}
+  - {fileID: 1542971393}
   - {fileID: 838880090}

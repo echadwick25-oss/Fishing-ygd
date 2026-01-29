@@ -1,9 +1,13 @@
+using TMPro;
 using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    public PlayerInventory inventory;
-    public FishingMinigame_Input fishing;
+    [SerializeField] GameObject ShopUi;
+    [SerializeField] GameObject Player;
+    public TMP_Text sellText;
+    public float sellTextTime;
+
     public int fish1price;
     public int fish2price;
     public int balance;
@@ -11,6 +15,15 @@ public class Shop : MonoBehaviour
     private void Start()
     {
         pricing();
+    }
+
+    private void Update()
+    {
+        sellTextTime -= Time.deltaTime;
+        if (sellTextTime < 0)
+        {
+            sellText.text = "";
+        }
     }
 
     private void pricing()
@@ -21,13 +34,30 @@ public class Shop : MonoBehaviour
 
     public void fish1sell()
     {
-        inventory.fish1 = inventory.fish1 - 1;
-        balance = inventory.balance + fish1price;
+        if (PlayerInventory.Instance.fish1 > 0)
+        {
+            PlayerInventory.Instance.fish1 = PlayerInventory.Instance.fish1 - 1;
+            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + fish1price;
+            sellTextTime = 2f;
+            sellText.text = "Fish1 sold for " + fish1price.ToString() + " Coins";
+        }
     }
 
     public void fish2sell()
     {
-        inventory.fish2 = inventory.fish2 - 1;
-        balance = inventory.balance + fish2price;
+        if (PlayerInventory.Instance.fish2 > 0)
+        {
+            PlayerInventory.Instance.fish2 = PlayerInventory.Instance.fish2 - 1;
+            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + fish2price;
+            sellTextTime = 2f;
+            sellText.text = "Fish2 sold for " + fish2price.ToString() + " Coins";
+        }
+    }
+
+    public void ShopClose()
+    {
+        ShopUi.SetActive(false);
+        Player.SetActive(true);
+        Player.GetComponentInChildren<NewInputSystemPlayerMovement>().interactWaitTime = 0;
     }
 }
