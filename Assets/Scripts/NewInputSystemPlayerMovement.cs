@@ -6,6 +6,7 @@ public class NewInputSystemPlayerMovement : MonoBehaviour
 {
     [Header("Player Component References")]
     [SerializeField] Rigidbody2D rb;
+    [SerializeField] Animator anim;
 
     [Header("Player Settings")]
     [SerializeField] float speed;
