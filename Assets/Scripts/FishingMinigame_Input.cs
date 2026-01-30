@@ -13,6 +13,8 @@ public class FishingMinigame_Input : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject interactField;
     [SerializeField] GameObject Player;
+    [SerializeField] GameObject Fish1Sprite;
+    [SerializeField] GameObject Fish2Sprite;
     public PlayerInventory inventory;
     public RectTransform trackArea;
     public RectTransform marker;
@@ -83,10 +85,12 @@ public class FishingMinigame_Input : MonoBehaviour
             {
                 hasRun = true;
                 inventory.fish1 = inventory.fish1 + 1;
+                Fish1Sprite.SetActive(true);
             }
             if (FishCaughtTextTime < 0)
             {
                 fishCaughtID = 0;
+                Fish1Sprite.SetActive(false);
                 hasRun = false;
                 StartFishing();
             }
@@ -99,17 +103,17 @@ public class FishingMinigame_Input : MonoBehaviour
             {
                 hasRun = true;
                 inventory.fish2 = inventory.fish2 + 1;
+                Fish2Sprite.SetActive(true);
             }
             if (FishCaughtTextTime < 0)
             {
                 fishCaughtID = 0;
+                Fish2Sprite.SetActive(false);
                 hasRun = false;
                 StartFishing();
             }    
         }
         
-
-
         switch (state)
         {
             case State.WaitingForBite:
@@ -124,9 +128,6 @@ public class FishingMinigame_Input : MonoBehaviour
                 UpdateMarker();
                 break;
         }
-      
-
-
     }
 
     private void OnStopPerformed(InputAction.CallbackContext ctx)

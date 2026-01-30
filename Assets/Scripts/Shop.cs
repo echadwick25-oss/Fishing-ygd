@@ -5,6 +5,9 @@ public class Shop : MonoBehaviour
 {
     [SerializeField] GameObject ShopUi;
     [SerializeField] GameObject Player;
+    [SerializeField] GameObject Fish1Sprite;
+    [SerializeField] GameObject Fish2Sprite;
+    
     public TMP_Text sellText;
     public float sellTextTime;
 
@@ -23,6 +26,8 @@ public class Shop : MonoBehaviour
         if (sellTextTime < 0)
         {
             sellText.text = "";
+            Fish1Sprite.SetActive(false);
+            Fish2Sprite.SetActive(false);
         }
     }
 
@@ -40,6 +45,7 @@ public class Shop : MonoBehaviour
             PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + fish1price;
             sellTextTime = 2f;
             sellText.text = "Fish1 sold for " + fish1price.ToString() + " Coins";
+            Fish1Sprite.SetActive(true);
         }
     }
 
@@ -51,6 +57,7 @@ public class Shop : MonoBehaviour
             PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + fish2price;
             sellTextTime = 2f;
             sellText.text = "Fish2 sold for " + fish2price.ToString() + " Coins";
+            Fish2Sprite.SetActive(true);
         }
     }
 
