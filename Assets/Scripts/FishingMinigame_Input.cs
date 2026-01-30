@@ -13,8 +13,15 @@ public class FishingMinigame_Input : MonoBehaviour
     [Header("References")]
     [SerializeField] GameObject interactField;
     [SerializeField] GameObject Player;
-    [SerializeField] GameObject Fish1Sprite;
-    [SerializeField] GameObject Fish2Sprite;
+    [SerializeField] GameObject BellSprite;
+    [SerializeField] GameObject BinLidSprite;
+    [SerializeField] GameObject CopperBarSprite;
+    [SerializeField] GameObject MaskSprite;
+    [SerializeField] GameObject MetalScrapSprite;
+    [SerializeField] GameObject ShipWheelSprite;
+    [SerializeField] GameObject StopSignSprite;
+    [SerializeField] GameObject StopWatchSprite;
+    [SerializeField] GameObject WrenchSprite;
     public PlayerInventory inventory;
     public RectTransform trackArea;
     public RectTransform marker;
@@ -80,17 +87,17 @@ public class FishingMinigame_Input : MonoBehaviour
         
         if (fishCaughtID == 1)
         {
-            fishCaughtText.text = "fish1";
+            fishCaughtText.text = "Bell";
             if (!hasRun)
             {
                 hasRun = true;
-                inventory.fish1 = inventory.fish1 + 1;
-                Fish1Sprite.SetActive(true);
+                inventory.bell = inventory.bell + 1;
+                BellSprite.SetActive(true);
             }
             if (FishCaughtTextTime < 0)
             {
                 fishCaughtID = 0;
-                Fish1Sprite.SetActive(false);
+                BellSprite.SetActive(false);
                 hasRun = false;
                 StartFishing();
             }
@@ -98,22 +105,148 @@ public class FishingMinigame_Input : MonoBehaviour
         
         if (fishCaughtID == 2)
         {
-            fishCaughtText.text = "fish2";
+            fishCaughtText.text = "BinLid";
             if (!hasRun)
             {
                 hasRun = true;
-                inventory.fish2 = inventory.fish2 + 1;
-                Fish2Sprite.SetActive(true);
+                inventory.binLid = inventory.binLid + 1;
+                BinLidSprite.SetActive(true);
             }
             if (FishCaughtTextTime < 0)
             {
                 fishCaughtID = 0;
-                Fish2Sprite.SetActive(false);
+                BinLidSprite.SetActive(false);
                 hasRun = false;
                 StartFishing();
             }    
         }
-        
+
+        if (fishCaughtID == 3)
+        {
+            fishCaughtText.text = "CopperBar";
+            if (!hasRun)
+            {
+                hasRun = true;
+                inventory.copperBar = inventory.copperBar + 1;
+                CopperBarSprite.SetActive(true);
+            }
+            if (FishCaughtTextTime < 0)
+            {
+                fishCaughtID = 0;
+                CopperBarSprite.SetActive(false);
+                hasRun = false;
+                StartFishing();
+            }
+        }
+
+        if (fishCaughtID == 4)
+        {
+            fishCaughtText.text = "Mask";
+            if (!hasRun)
+            {
+                hasRun = true;
+                inventory.mask = inventory.mask + 1;
+                MaskSprite.SetActive(true);
+            }
+            if (FishCaughtTextTime < 0)
+            {
+                fishCaughtID = 0;
+                MaskSprite.SetActive(false);
+                hasRun = false;
+                StartFishing();
+            }
+        }
+
+        if (fishCaughtID == 5)
+        {
+            fishCaughtText.text = "MetalScrap";
+            if (!hasRun)
+            {
+                hasRun = true;
+                inventory.metalScrap = inventory.metalScrap + 1;
+                MetalScrapSprite.SetActive(true);
+            }
+            if (FishCaughtTextTime < 0)
+            {
+                fishCaughtID = 0;
+                MetalScrapSprite.SetActive(false);
+                hasRun = false;
+                StartFishing();
+            }
+        }
+
+        if (fishCaughtID == 6)
+        {
+            fishCaughtText.text = "ShipWheel";
+            if (!hasRun)
+            {
+                hasRun = true;
+                inventory.shipWheel = inventory.shipWheel + 1;
+                ShipWheelSprite.SetActive(true);
+            }
+            if (FishCaughtTextTime < 0)
+            {
+                fishCaughtID = 0;
+                ShipWheelSprite.SetActive(false);
+                hasRun = false;
+                StartFishing();
+            }
+        }
+
+        if (fishCaughtID == 7)
+        {
+            fishCaughtText.text = "StopSign";
+            if (!hasRun)
+            {
+                hasRun = true;
+                inventory.stopSign = inventory.stopSign + 1;
+                StopSignSprite.SetActive(true);
+            }
+            if (FishCaughtTextTime < 0)
+            {
+                fishCaughtID = 0;
+                StopSignSprite.SetActive(false);
+                hasRun = false;
+                StartFishing();
+            }
+        }
+
+        if (fishCaughtID == 8)
+        {
+            fishCaughtText.text = "Stopwatch";
+            if (!hasRun)
+            {
+                hasRun = true;
+                inventory.stopWatch = inventory.stopWatch + 1;
+                StopWatchSprite.SetActive(true);
+            }
+            if (FishCaughtTextTime < 0)
+            {
+                fishCaughtID = 0;
+                StopWatchSprite.SetActive(false);
+                hasRun = false;
+                StartFishing();
+            }
+        }
+
+        if (fishCaughtID == 9)
+        {
+            fishCaughtText.text = "Wrench";
+            if (!hasRun)
+            {
+                hasRun = true;
+                inventory.Wrench = inventory.Wrench + 1;
+                WrenchSprite.SetActive(true);
+            }
+            if (FishCaughtTextTime < 0)
+            {
+                fishCaughtID = 0;
+                WrenchSprite.SetActive(false);
+                hasRun = false;
+                StartFishing();
+            }
+        }
+
         switch (state)
         {
             case State.WaitingForBite:
@@ -185,7 +318,7 @@ public class FishingMinigame_Input : MonoBehaviour
         {
             if (resultText) resultText.text = "Fish Caught!";
             onCatch?.Invoke();
-            fishCaughtID = Random.Range(1, 3);
+            fishCaughtID = Random.Range(1, 9);
             FishCaughtTextTime = 3f;
 
         }

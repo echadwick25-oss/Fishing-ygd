@@ -5,20 +5,22 @@ public class Shop : MonoBehaviour
 {
     [SerializeField] GameObject ShopUi;
     [SerializeField] GameObject Player;
-    [SerializeField] GameObject Fish1Sprite;
-    [SerializeField] GameObject Fish2Sprite;
-    
+    [SerializeField] GameObject BellSprite;
+    [SerializeField] GameObject BinLidSprite;
+    [SerializeField] GameObject CopperBarSprite;
+    [SerializeField] GameObject MaskSprite;
+    [SerializeField] GameObject MetalScrapSprite;
+    [SerializeField] GameObject ShipWheelSprite;
+    [SerializeField] GameObject StopSignSprite;
+    [SerializeField] GameObject StopWatchSprite;
+    [SerializeField] GameObject WrenchSprite;
+
     public TMP_Text sellText;
     public float sellTextTime;
 
-    public int fish1price;
-    public int fish2price;
-    public int balance;
 
-    private void Start()
-    {
-        pricing();
-    }
+    public int price;
+    public int balance;
 
     private void Update()
     {
@@ -26,40 +28,133 @@ public class Shop : MonoBehaviour
         if (sellTextTime < 0)
         {
             sellText.text = "";
-            Fish1Sprite.SetActive(false);
-            Fish2Sprite.SetActive(false);
+            //BellSprite.SetActive(false);
+            //BinLidSprite.SetActive(false);
+            //CopperBarSprite.SetActive(false);
+            //MaskSprite.SetActive(false);
+            //MetalScrapSprite.SetActive(false);
+            //ShipWheelSprite.SetActive(false);
+            //StopSignSprite.SetActive(false);
+            //StopWatchSprite.SetActive(false);
+            //WrenchSprite.SetActive(false);
         }
     }
 
-    private void pricing()
+    private void Pricing()
     {
-        fish1price = Random.Range(5, 10);
-        fish2price = Random.Range(10, 15);
+        price = Random.Range(1, 100);
     }
 
-    public void fish1sell()
+    public void BellSell()
     {
-        if (PlayerInventory.Instance.fish1 > 0)
+        if (PlayerInventory.Instance.bell > 0)
         {
-            PlayerInventory.Instance.fish1 = PlayerInventory.Instance.fish1 - 1;
-            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + fish1price;
+            Pricing();
+            PlayerInventory.Instance.bell = PlayerInventory.Instance.bell - 1;
+            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + price;
             sellTextTime = 2f;
-            sellText.text = "Fish1 sold for " + fish1price.ToString() + " Coins";
-            Fish1Sprite.SetActive(true);
+            sellText.text = "Bell sold for " + price.ToString() + " Coins";
+            BellSprite.SetActive(true);
         }
     }
 
-    public void fish2sell()
+    public void BinLidSell()
     {
-        if (PlayerInventory.Instance.fish2 > 0)
+        if (PlayerInventory.Instance.binLid > 0)
         {
-            PlayerInventory.Instance.fish2 = PlayerInventory.Instance.fish2 - 1;
-            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + fish2price;
+            Pricing();
+            PlayerInventory.Instance.binLid = PlayerInventory.Instance.binLid - 1;
+            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + price;
             sellTextTime = 2f;
-            sellText.text = "Fish2 sold for " + fish2price.ToString() + " Coins";
-            Fish2Sprite.SetActive(true);
+            sellText.text = "Bin Lid sold for " + price.ToString() + " Coins";
+            //BinLidSprite.SetActive(true);
         }
     }
+    public void CopperBarSell()
+    {
+        if (PlayerInventory.Instance.copperBar > 0)
+        {
+            Pricing();
+            PlayerInventory.Instance.copperBar = PlayerInventory.Instance.copperBar - 1;
+            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + price;
+            sellTextTime = 2f;
+            sellText.text = "Copper Bar sold for " + price.ToString() + " Coins";
+            //CopperBarSprite.SetActive(true);
+        }
+    }
+    public void MaskSell()
+    {
+        if (PlayerInventory.Instance.mask > 0)
+        {
+            Pricing();
+            PlayerInventory.Instance.mask = PlayerInventory.Instance.mask - 1;
+            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + price;
+            sellTextTime = 2f;
+            sellText.text = "Mask sold for " + price.ToString() + " Coins";
+            //MaskSprite.SetActive(true);
+        }
+    }
+    public void MetalScrapSell()
+    {
+        if (PlayerInventory.Instance.metalScrap > 0)
+        {
+            Pricing();
+            PlayerInventory.Instance.metalScrap = PlayerInventory.Instance.metalScrap - 1;
+            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + price;
+            sellTextTime = 2f;
+            sellText.text = "Metal Scrap sold for " + price.ToString() + " Coins";
+            //MetalScrapSprite.SetActive(true);
+        }
+    }
+    public void ShipWheelSell()
+    {
+        if (PlayerInventory.Instance.shipWheel > 0)
+        {
+            Pricing();
+            PlayerInventory.Instance.shipWheel = PlayerInventory.Instance.shipWheel - 1;
+            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + price;
+            sellTextTime = 2f;
+            sellText.text = "Ship Wheel sold for " + price.ToString() + " Coins";
+            //ShipWheelSprite.SetActive(true);
+        }
+    }
+    public void StopSignSell()
+    {
+        if (PlayerInventory.Instance.stopSign > 0)
+        {
+            Pricing();
+            PlayerInventory.Instance.stopSign = PlayerInventory.Instance.stopSign - 1;
+            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + price;
+            sellTextTime = 2f;
+            sellText.text = "Stop Sign sold for " + price.ToString() + " Coins";
+            //StopSignSprite.SetActive(true);
+        }
+    }
+    public void StopWatchSell()
+    {
+        if (PlayerInventory.Instance.stopWatch > 0)
+        {
+            Pricing();
+            PlayerInventory.Instance.stopWatch = PlayerInventory.Instance.stopWatch - 1;
+            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + price;
+            sellTextTime = 2f;
+            sellText.text = "Stop Watch sold for " + price.ToString() + " Coins";
+            //StopWatchSprite.SetActive(true);
+        }
+    }
+    public void WrenchSell()
+    {
+        if (PlayerInventory.Instance.Wrench > 0)
+        {
+            Pricing();
+            PlayerInventory.Instance.Wrench = PlayerInventory.Instance.Wrench - 1;
+            PlayerInventory.Instance.balance = PlayerInventory.Instance.balance + price;
+            sellTextTime = 2f;
+            sellText.text = "Wrench sold for " + price.ToString() + " Coins";
+            //WrenchSprite.SetActive(true);
+        }
+    }
+
 
     public void ShopClose()
     {
